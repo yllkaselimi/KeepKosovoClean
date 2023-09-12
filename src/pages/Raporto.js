@@ -1,8 +1,11 @@
 import React from 'react'
+import Crud from '../components/Crud'
 
 function Raporto() {
   return (
-    <div>peanuuuuut butterrrrrr</div>
+    <div className='container pt-[64px] mx-auto'>
+      <Crud/>
+    </div>
   )
 }
 
