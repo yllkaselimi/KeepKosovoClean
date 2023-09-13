@@ -15,7 +15,7 @@ const MapSection = () => {
 
   return (
     <div className="h-[100vh] py-10 flex justify-center items-center relative overflow-hidden flex-col">
-      <h2 className='font-black text-5xl mb-14 text-[#3A4D1Cff] uppercase'>Find locations</h2>
+      <h2 className='font-black text-5xl mb-14 text-[#3A4D1Cff] uppercase'>Gjej Lokacionet</h2>
       <div className="overflow-hidden rounded-[30px] w-[80%] h-[80%]">
         <MapContainer
           center={[mapCoords.lat, mapCoords.lng]}

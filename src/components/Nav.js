@@ -6,14 +6,14 @@ const Navigation = () => {
     <nav className="mb-[-64px] z-10 relative p-4">
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
-          <Link to="/" className="text-white text-2xl font-semibold">
-            PastroKosoven
+          <Link to="/" className="text-gray-200 text-2xl font-semibold">
+            PASTROKOSOVEN
           </Link>
           <ul className="flex space-x-4">
             <li>
               <NavLink
                 to="/"
-                className="text-gray-300 hover:text-white transition duration-300"
+                className="text-gray-200 hover:text-white transition duration-300"
               >
                 Home
               </NavLink>
@@ -21,9 +21,33 @@ const Navigation = () => {
             <li>
               <NavLink
                 to="/raporto"
-                className="text-gray-300 hover:text-white transition duration-300"
+                className="text-gray-200 hover:text-white transition duration-300"
               >
                 Raporto
+              </NavLink>
+            </li>
+            <li>
+            <NavLink
+                to="/evente"
+                className="text-gray-200 hover:text-white transition duration-300"
+              >
+                Evente
+              </NavLink>
+            </li>
+            <li>
+            <NavLink
+                to="/login"
+                className="text-gray-200 hover:text-white transition duration-300"
+              >
+                Kycu
+              </NavLink>
+            </li>
+            <li>
+            <NavLink
+                to="/register"
+                className="text-gray-200 hover:text-white transition duration-300"
+              >
+                Regjistrohu
               </NavLink>
             </li>
           </ul>

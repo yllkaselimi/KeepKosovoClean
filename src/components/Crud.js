@@ -49,9 +49,10 @@ const Crud = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-semibold mb-4">CRUD Page</h1>
+      <div className="px-[0] bg-[#3A4D1Cff] pb-16 flex justify-around w-screen absolute left-0 right-0 top-0"></div>
+      <h2 className='font-black text-5xl mb-14 text-[#3A4D1Cff] mt-5 uppercase'>Krijo Raportin</h2>
       <div className="mb-4">
-        <label htmlFor="title" className="block text-gray-600">Title</label>
+        <label htmlFor="title" className="text-[#3A4D1Cff]">Titulli</label>
         <input
           type="text"
           id="title"
@@ -61,7 +62,7 @@ const Crud = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="description" className="block text-gray-600">Description</label>
+        <label htmlFor="description" className="text-[#3A4D1Cff]">Pershkrimi</label>
         <textarea
           id="description"
           className="w-full border rounded-md p-2"
@@ -71,7 +72,7 @@ const Crud = () => {
         ></textarea>
       </div>
       <div className="mb-4">
-        <label htmlFor="image" className="block text-gray-600">Image Upload</label>
+        <label htmlFor="image" className="text-[#3A4D1Cff]">Imazhi</label>
         <input
           type="file"
           id="image"
@@ -80,8 +81,9 @@ const Crud = () => {
           onChange={(e) => setImageFile(e.target.files[0])} // Store the selected file
         />
       </div>
+ 
       <div className="mb-4 overflow-hidden" style={{ width: '300px', height: '300px' }}>
-        <label htmlFor="map" className="block text-gray-600">Map Coordinates</label>
+        <label htmlFor="map" className="text-[#3A4D1Cff]">Lokacioni</label>
         <MapContainer
           center={[mapCoords.lat, mapCoords.lng]}
           zoom={13}
@@ -107,32 +109,37 @@ const Crud = () => {
         </MapContainer>
       </div>
       <button
-        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full"
+        className="bg-transparent uppercase border-2 border-white-900 h-10 hover:translate-y-[-5px] shadow text-[#3A4D1Cff] py-1 px-4 rounded-full text-lg font-semibold transition duration-300 mb-20 mt-5"
         onClick={handleSave}
       >
-        Save
+        Publiko
       </button>
-      <div className="mt-8">
-        <h2 className="text-xl font-semibold mb-2">Items</h2>
-        <ul>
-          {items.map((item, index) => (
-            <li key={index} className="border rounded-md p-4 mb-4">
-              <h3 className="text-lg font-semibold">{item.title}</h3>
-              <p className="text-gray-600">{item.description}</p>
-              <img src={item.image} alt={item.title} className="mt-2 w-32 h-32 object-cover" />
-              <p className="mt-2">Latitude: {item.mapCoords.lat}</p>
-              <p>Longitude: {item.mapCoords.lng}</p>
-              <button
-              className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full mt-2"
-              onClick={() => handleDelete(index)}
-            >
-              Delete
-            </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+
+      <div className="px-[0] bg-[#3A4D1Cff] pb-10 flex justify-around w-screen absolute left-0 right-0">
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  <h2 className="font-black text-4xl mb-5 text-white uppercase col-span-full">Postimet</h2>
+  {items.map((item, index) => (
+    <div key={index} className="border rounded-md p-7 mb-0 bg-white">
+      <h3 className="font-black mb-15 text-[#3A4D1Cff] uppercase col-span-full">{item.title}</h3>
+      <p className="text-[#3A4D1Cff] mt-2">{item.description}</p>
+      <img src={item.image} alt={item.title} className="mt-5 w-45 h-40 object-cover" />
+      <p className="text-[#3A4D1Cff] mt-5">Latitude: {item.mapCoords.lat}</p>
+      <p className="text-[#3A4D1Cff]">Longitude: {item.mapCoords.lng}</p>
+      <button
+        className=" mt-3 bg-transparent uppercase border-2 border-white-900 h-10 hover:translate-y-[-5px] shadow text-[#3A4D1Cff] py-1 px-4 rounded-full text-lg font-semibold transition duration-300"
+        onClick={() => handleDelete(index)}
+      >
+        Delete
+      </button>
     </div>
+  ))}
+</div>
+</div>
+
+    </div>
+
+
+
   );
 };
 
