@@ -1,6 +1,40 @@
-
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { getLoggedInUser, getUsers } from '../helpers/storage'
 
 function Register() {
+    const [message, setMessage] = useState()
+    const navigate = useNavigate()
+    
+    useEffect(() => {
+        if(getLoggedInUser() !== null) navigate('/raporto');
+    }, [])
+    
+    const handleRegister = e => {
+        e.preventDefault()
+    
+        const user = {
+        fullname: e.target.elements[0].value,
+        email: e.target.elements[1].value,
+        password: e.target.elements[2].value,
+        }
+    
+        const users = getUsers()
+    
+        if(users.length > 0) {
+        const user_exists = users.filter(ls_user => ls_user.email == user.email)
+    
+        if(user_exists.length > 0) {
+            setMessage('User with ' + user.email + ' already exists!')
+        } else {
+            localStorage.setItem('users', JSON.stringify([...users, user]))
+            navigate('/login');
+        }
+        } else {
+        localStorage.setItem('users', JSON.stringify([user]))
+        navigate('/login');
+        }
+    }
 
     return (
       <div>
@@ -9,8 +43,9 @@ function Register() {
 
          <div className="flex items-center justify-center">
             <div className="bg-[#E39C9C] w-full max-w-sm p-4 rounded-lg sm:p-6 md:p-8 ">
-                <form className="space-y-6" action="#">
+                <form onSubmit={handleRegister} className="space-y-6" action="#">
                 <h1 className='font-black text-3xl mb-7 text-white uppercase flex items-center relative '>Register</h1>
+                    {message != null && <div className="mb-4">{message}</div>}
                     <div>
                         <label htmlFor="text" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Emri Mbiemri</label>
                         <input type="text" name="text" id="text" placeholder="Yllka Selimi"  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 w-full p-2.5 dark:bg-white dark:border-white dark:placeholder-gray-400 dark:text-gray-600" required></input>

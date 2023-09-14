@@ -118,7 +118,7 @@ const Crud = () => {
           </MapContainer>
         </div>
         <button
-          className="bg-transparent uppercase border-2 border-white-900 h-10 hover:translate-y-[-5px] shadow text-[#3A4D1Cff] py-1 px-4 rounded-full text-lg font-semibold transition duration-300 mb-20 mt-5"
+          className="bg-transparent uppercase border-2 border-white-900 h-10 hover:translate-y-[-5px] shadow text-[#3A4D1Cff] py-1 px-4 rounded-full text-lg font-semibold transition duration-300 my-6 flex mx-auto"
           onClick={handleSave}
         >
           Publiko

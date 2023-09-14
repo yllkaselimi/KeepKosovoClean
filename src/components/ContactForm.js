@@ -27,8 +27,8 @@ const ContactForm = () => {
 
   return (
     <div>
-    <div className="max-w-md mx-auto p-4 bg-white shadow-md rounded-lg">
-    <h1 className='font-black text-3xl mb-7 text-[#908C8C] uppercase flex items-center relative '>Contact Us</h1>
+    <div className="max-w-md mx-auto p-4 bg-white shadow-md rounded-lg border-[#3A4D1C] border-2">
+    <h1 className='font-black text-3xl mb-7 text-[#3A4D1C] uppercase flex items-center relative '>Contact Us</h1>
       <div className="mb-4">
         <input
           type="email"
@@ -61,8 +61,8 @@ const ContactForm = () => {
 
     <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl mt-20 lg:text-6xl dark:text-white">Behu pjese e komunitetit <span class="underline underline-offset-3 decoration-8 decoration-white dark:decoration-white"> #pastroKosoven</span></h1>
     
-    <p class="mb-3 text-lg text-gray-500 md:text-xl dark:text-gray-400 mt-10">Hedhja e mbeturinave në natyrë, shkaterron ekosistemet dhe habitatet e shumë llojeve të bimëve dhe shtazëve.</p>
-    <p class="text-gray-500 dark:text-gray-400 text-center">Hedhja e mbeturinave toksike, mund të ndikojë negativisht në shëndetin e qytetarëve. Ndërhyrjet mjekësore të lidhura me ndotjen dhe kontaminimin e mjedisit shkaktojnë probleme serioze shëndetësore tek ne.</p>
+    <p class="mb-3 text-lg text-gray-100 md:text-xl dark:text-gray-100 mt-10">Hedhja e mbeturinave në natyrë, shkaterron ekosistemet dhe habitatet e shumë llojeve të bimëve dhe shtazëve.</p>
+    <p class="text-gray-100 dark:text-gray-100 text-center">Hedhja e mbeturinave toksike, mund të ndikojë negativisht në shëndetin e qytetarëve. Ndërhyrjet mjekësore të lidhura me ndotjen dhe kontaminimin e mjedisit shkaktojnë probleme serioze shëndetësore tek ne.</p>
 
     </div>
     </div>

@@ -1,12 +1,48 @@
+import React, { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { getLoggedInUser, getUsers } from '../helpers/storage'
 
-function Login() {
+
+function Login({setUser}) {
+    const [message, setMessage] = useState()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+      if(getLoggedInUser() !== null) navigate('/raporto');
+    }, [])
+  
+    const handleLogin = e => {
+      e.preventDefault()
+  
+      const user = {
+        email: e.target.elements[0].value,
+        password: e.target.elements[1].value,
+      }
+
+      const users = getUsers()
+  
+      if(users.length > 0) {
+        const user_exists = users.filter(u => ((u.email == user.email) && (u.password == user.password)))
+        if(user_exists.length > 0) {
+          localStorage.setItem('loggedin', JSON.stringify(user.email))
+          setUser(user.email)
+          navigate('/raporto')
+        } else {
+          setMessage('Incorrect email and/or password!')
+        }
+      } else {
+        setMessage('User with ' + user.email + ' does not exist!')
+      }
+    }
+
   return (
     <div>
         <div className="px-[0] bg-[#3A4D1Cff] pb-16 flex justify-around w-screen absolute left-0 right-0 top-0"></div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3A4D1C" fill-opacity="1" d="M0,160L40,186.7C80,213,160,267,240,261.3C320,256,400,192,480,165.3C560,139,640,149,720,176C800,203,880,245,960,256C1040,267,1120,245,1200,218.7C1280,192,1360,160,1400,144L1440,128L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path></svg>
         <div className="flex items-center justify-center">
             <div className="bg-[#E39C9C] w-full max-w-sm p-4 rounded-lg sm:p-6 md:p-8 ">
-                <form className="space-y-6" action="#">
+                {message != null && <div className="mb-4">{message}</div>}
+                <form onSubmit={handleLogin} className="space-y-6">
                 <h1 className='font-black text-3xl mb-7 text-white uppercase flex items-center relative '>Login</h1>
                     <div>
                         <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>

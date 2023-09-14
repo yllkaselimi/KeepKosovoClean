@@ -1,7 +1,15 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
-const Navigation = () => {
+const Navigation = ({user, setUser}) => {
+  const navigate = useNavigate()
+
+  const handleLogout = e => {
+    localStorage.removeItem('loggedin')
+    setUser(null)
+    navigate('/')
+  }
+
   return (
     <nav className="mb-[-64px] z-10 relative p-4">
       <div className="container mx-auto">
@@ -34,22 +42,39 @@ const Navigation = () => {
                 Evente
               </NavLink>
             </li>
-            <li>
-            <NavLink
-                to="/login"
-                className="text-gray-200 hover:text-white transition duration-300"
+            <li className="relative group">
+              <a
+                href="#"
+                className="block py-2 px-4 text-white dropdown-toggle"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
               >
-                Kycu
-              </NavLink>
-            </li>
-            <li>
-            <NavLink
-                to="/register"
-                className="text-gray-200 hover:text-white transition duration-300"
-              >
-                Regjistrohu
-              </NavLink>
-            </li>
+                {( user !== null) ? user : 'Guest'}
+              </a>
+              <ul className="hidden absolute left-0 space-y-2 bg-white text-gray-700 group-hover:block">
+                {(user === null) ? (
+                  <>
+                    <li>
+                      <a href="/login" className="block px-4 py-2 hover:bg-gray-100">Login</a>
+                    </li>
+                    <li>
+                      <a href="/register" className="block px-4 py-2 hover:bg-gray-100">Register</a>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <a href="/raporto" className="block px-4 py-2 hover:bg-gray-100">Raporto</a>
+                    </li>
+                    <li>
+                      <button onClick={handleLogout} className="block px-4 py-2 hover:bg-gray-100">Logout</button>
+                    </li>
+                  </>
+                )}
+              </ul>
+          </li>
+
           </ul>
         </div>
       </div>
