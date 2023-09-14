@@ -60,14 +60,9 @@ const ContactForm = () => {
     <div className="h-[55vh] px-[0] bg-[#3A4D1Cff] pb-10 flex items-center relative overflow-hidden flex-col">
 
     <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl mt-20 lg:text-6xl dark:text-white">Behu pjese e komunitetit <span class="underline underline-offset-3 decoration-8 decoration-white dark:decoration-white"> #pastroKosoven</span></h1>
-
     
     <p class="mb-3 text-lg text-gray-500 md:text-xl dark:text-gray-400 mt-10">Hedhja e mbeturinave në natyrë, shkaterron ekosistemet dhe habitatet e shumë llojeve të bimëve dhe shtazëve.</p>
     <p class="text-gray-500 dark:text-gray-400 text-center">Hedhja e mbeturinave toksike, mund të ndikojë negativisht në shëndetin e qytetarëve. Ndërhyrjet mjekësore të lidhura me ndotjen dhe kontaminimin e mjedisit shkaktojnë probleme serioze shëndetësore tek ne.</p>
-
-
-
-    
 
     </div>
     </div>

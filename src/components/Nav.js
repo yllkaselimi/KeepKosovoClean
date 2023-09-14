@@ -6,7 +6,7 @@ const Navigation = () => {
     <nav className="mb-[-64px] z-10 relative p-4">
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
-          <Link to="/" className="text-gray-200 text-2xl font-semibold">
+          <Link to="/"  className='font-black text-2xl text-white uppercase '>
             PASTROKOSOVEN
           </Link>
           <ul className="flex space-x-4">
