@@ -9,7 +9,12 @@ const Crud = () => {
   const [mapCoords, setMapCoords] = useState({ lat: 42.645312, lng: 21.1733611 });
 
   useEffect(() => {
+<<<<<<< Updated upstream
     // Load data from local storage on component mount
+=======
+    // Load data from local storage on component mount Testttt
+    //Test
+>>>>>>> Stashed changes
     const savedItems = JSON.parse(localStorage.getItem('crudItems')) || [];
     setItems(savedItems);
   }, []);
